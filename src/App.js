@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+// import Navbar from "./components/navbar";
+import Navbar from "./components/navbar/index";
+import { createTheme, ThemeProvider, CssBaseline } from "@mui/material";
+
+
+const onsemitheme = createTheme({
+  palette: {
+    primary: {
+      main: '#ff7920',
+    },
+    secondary: {
+      main: '#f50057',
+    }
+  },
+})
+
+
+
 
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={onsemitheme}>
+      <CssBaseline />
+      <div className="App">
+        <Navbar />
+      </div>
+    </ThemeProvider>
   );
 }
 
